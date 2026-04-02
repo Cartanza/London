@@ -1,8 +1,8 @@
-{{!< default}}
+{{#*inline "body"}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{#tag}}
+{{#with tag}}
 <header class="page-head">
     <h1 class="page-head-title">{{name}}</h1>
     <p class="page-head-description">
@@ -13,10 +13,12 @@ into the {body} of the default.hbs template --}}
         {{/if}}
     </p>
 </header>
-{{/tag}}
+{{/with}}
 
 <div class="post-feed gh-feed">
     {{#foreach posts}}
-        {{> "post-card"}}
+        {{> partials/post-card}}
     {{/foreach}}
 </div>
+{{/inline}}
+{{> default}}

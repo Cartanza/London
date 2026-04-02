@@ -1,6 +1,5 @@
-{{!< default}}
-
-{{#post}}
+{{#*inline "body"}}
+{{#with post}}
 <article class="post-content {{post_class}}">
 
     <header class="post-content-header gh-canvas">
@@ -8,12 +7,12 @@
         {{#if custom_excerpt}}
             <p class="post-content-excerpt">{{custom_excerpt}}</p>
         {{/if}}
-        {{> "feature-image"}}
+        {{> partials/feature-image}}
     </header>
 
 
     <div class="post-content-body gh-content gh-canvas">
-        {{content}}
+        {{{content}}}
     </div>
 
     {{#if comments}}
@@ -23,4 +22,6 @@
     {{/if}}
 
 </article>
-{{/post}}
+{{/with}}
+{{/inline}}
+{{> default}}
